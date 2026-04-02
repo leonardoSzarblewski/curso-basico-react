@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { InputAdd } from "./components/inputAdd";
 import { TodoItem } from "./components/todoItem";
+import { List } from "./components/list";
 
 export function App() {
   const [isList, setList] = useState([
@@ -36,7 +37,7 @@ export function App() {
 
       <InputAdd onAdd={handleAddInput}/>
 
-      <ol>
+      <List>
         {isList.map((listItem) => (
 
           <TodoItem
@@ -47,13 +48,11 @@ export function App() {
             complete={ listItem.complete }  
             
             onComplete={() => handleCompleteButton( listItem.id )}
-
             onRemove={() => handleRemoveButton( listItem.id )}
-          />
-          
-
+          />      
         ))}
-      </ol>
+      </List>
+
      </main>
     )
   } 
