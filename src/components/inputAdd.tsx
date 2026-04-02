@@ -5,7 +5,12 @@ type inputAddProps =  {
 }
 
 export function InputAdd(props: inputAddProps) {
-    const [isValue, setValue] = useState('')
+    const [isValue, setValue] = useState('');
+
+    const handleAdd = () => {
+        props.onAdd(isValue);
+        setValue('');
+    }
 
     return (
         <div>
@@ -15,7 +20,7 @@ export function InputAdd(props: inputAddProps) {
             onChange={(e) => setValue(e.target.value)}
         />
         <button 
-            onClick={() => { props.onAdd(isValue), setValue('') }}
+            onClick={ handleAdd }
         >
             Adicionar
             </button>
