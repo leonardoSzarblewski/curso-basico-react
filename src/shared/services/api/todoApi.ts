@@ -2,7 +2,7 @@ import axios from "axios"
 
 const axiosInstance = axios.create()
 
-type Todo = {
+export type Todo = {
     id: string,
     label: string,
     complete: boolean

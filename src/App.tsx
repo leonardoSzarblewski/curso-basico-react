@@ -1,34 +1,34 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { InputAdd } from "./components/inputAdd";
 import { TodoItem } from "./components/todoItem";
 import { List } from "./components/list";
 
+import { type Todo, TodoApi } from "./shared/services/api/todoApi";
+
+
 export function App() {
-  const [isList, setList] = useState([
-    {id: '1', label: 'Fazer café', complete: false},
-    {id: '2', label: 'Fazer almoço', complete: false},
-    {id: '3', label: 'Fazer janta', complete: false}
-  ])
+  const [isList, setList] = useState<Todo[]>([])
+  
+  useEffect(() => {
+    TodoApi.getAll().then(data => setList(data))
+  }, [])
 
   const handleAddInput = (value : string) => {
-    setList([ 
-        ...isList, 
-        { id: (isList.length + 1).toString(), complete: false, label: value}
-    ])
+
+      TodoApi.create({ label: value, complete: false}).then(data => setList([...isList, data]))
   }
 
   const handleRemoveButton = (id : string) => {
-    setList([
-        ...isList.filter(item => item.id !== id
-    )])
+
+    TodoApi.deleteById(id).then(() => setList([...isList.filter(item => item.id !== id)]))
+
   }
 
   const handleCompleteButton = (id : string) => {
-    setList([
-       ...isList.map(item => ({ 
-       ...item, 
-       complete: item.id === id ? true : item.complete
-    }))])
+
+    TodoApi.updateById(id, { complete: true })
+      .then(() =>  setList([ ...isList.map(item => ({ ...item, complete: item.id === id ? true : item.complete }))]))
+   
   }
 
 
