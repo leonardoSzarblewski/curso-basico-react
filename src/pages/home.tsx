@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { TodoApi, type Todo } from "../shared/services/api/todoApi"
 import { InputAdd } from "../components/InputAdd"
-import { List } from "../components/list"
+import { List } from "../components/List"
 import { TodoItem } from "../components/TodoItem"
 import { PageLayout } from "../shared/layout/pageLayout/PageLayout"
 
