@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { TodoApi, type Todo } from "../shared/services/api/todoApi"
-import { InputAdd } from "../components/inputAdd"
+import { InputAdd } from "../components/InputAdd"
 import { List } from "../components/list"
-import { TodoItem } from "../components/todoItem"
+import { TodoItem } from "../components/TodoItem"
 import { PageLayout } from "../shared/layout/pageLayout/PageLayout"
 
  
@@ -35,7 +35,7 @@ export function Home() {
     
     
     return (
-        <PageLayout title='Página inicial'>
+        <PageLayout title='TODO list'>
     
           <InputAdd onAdd={handleAddInput}/>
     

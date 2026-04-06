@@ -1,0 +1,28 @@
+.container{
+  gap: 20px;
+  padding: 8px;
+  display: flex;
+}
+
+.input{
+    width: 90%;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #80808062;
+    padding: 8px 16px;
+}
+
+.buttonAdd{
+    border: none;
+    background: linear-gradient(90deg, #1b884a, #1de677);
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 16px;
+}
+
+
+.buttonAdd:hover {
+  background: linear-gradient(90deg, #34985f, #43cd81);
+}
