@@ -35,7 +35,7 @@ export function Home() {
     
     
     return (
-        <PageLayout title='TODO list'>
+        <PageLayout title='Lista de Tarefas'>
     
           <InputAdd onAdd={handleAddInput}/>
     
