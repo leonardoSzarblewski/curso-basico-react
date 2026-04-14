@@ -48,8 +48,6 @@ export const Login = () => {
     if (!validateForm()) {
       return;
     }
-
-    console.log('Entrar');
     login(email, password);
   };
 
@@ -61,29 +59,32 @@ export const Login = () => {
           Login
         </h1>
 
+        <div className={LoginStyles.FormContainer}>
+          <div className={LoginStyles.FieldGroup}>
+            <b>Email</b>
+            <input
+              value={email}
+              className={LoginStyles.Input}
+              onChange={e => setEmail(e.target.value)}
+            />
+            {errors.email && (
+              <span className={LoginStyles.ErrorMessage}>{errors.email}</span>
+            )}
+          </div>
 
-        <b>Email</b>
-        <input
-          value={email}
-          className={LoginStyles.Input}
-          onChange={e => setEmail(e.target.value)}
-        />
-        {errors.email && (
-          <span className={LoginStyles.ErrorMessage}>{errors.email}</span>
-        )}
-
-        <b>Senha</b>
-        <input
-          type='password'
-          value={password}
-          className={LoginStyles.Input}
-          onChange={e => setPassword(e.target.value)}
-        />
-        {errors.password && (
-          <span className={LoginStyles.ErrorMessage}>{errors.password}</span>
-        )}
-
-        <br />
+          <div className={LoginStyles.FieldGroup}>
+            <b>Senha</b>
+            <input
+              type='password'
+              value={password}
+              className={LoginStyles.Input}
+              onChange={e => setPassword(e.target.value)}
+            />
+            {errors.password && (
+              <span className={LoginStyles.ErrorMessage}>{errors.password}</span>
+            )}
+          </div>
+        </div>
 
         <button className={LoginStyles.Button} onClick={handleLogin}>
           Entrar

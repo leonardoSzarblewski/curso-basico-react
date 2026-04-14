@@ -8,16 +8,30 @@
 
 .PageContent {
   width: 100%;
-  padding: 16px;
-  max-width: 300px;
+  padding: 24px;
+  max-width: 350px;
   border-radius: 8px;
   background-color: white;
   box-shadow: 0 2px 6px #0000001a;
-  gap: 8px;
+  gap: 16px;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
+}
+
+.FormContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.FieldGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .Title {
@@ -25,13 +39,14 @@
 }
 
 .Input {
-  flex: 1;
-  padding: 8px;
+  width: 100%;
+  padding: 10px;
   font-size: 16px;
   border: 1px solid #00000025;
   border-radius: 4px;
-  padding-left: 16px;
-  padding-right: 16px;
+  padding-left: 12px;
+  padding-right: 12px;
+  box-sizing: border-box;
 }
 
 .Button {
@@ -58,5 +73,5 @@
   color: #dc2626;
   font-size: 12px;
   align-self: flex-start;
-  padding-left: 30px;
+  padding-left: 4px;
 }
