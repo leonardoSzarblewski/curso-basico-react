@@ -41,4 +41,10 @@ export const TodoApi = {
     
         return    
     },
+
+    async deleteAll() {
+        await axiosInstance.delete('/api/todos')
+    
+        return    
+    },
 }

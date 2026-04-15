@@ -56,7 +56,16 @@ createServer({
 
             return {}
         })
-            
+
+        this.delete('/todos', (schema) => {
+            const todos = schema.all('todos')
+            todos.models.forEach((todo: any) => todo.destroy())
+
+            localStorage.setItem('MOCK_TODOS', JSON.stringify(schema.all('todos')))
+
+            return {}
+        })
+
 
     },
 })

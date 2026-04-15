@@ -4,6 +4,7 @@ import { InputAdd } from "../components/InputAdd"
 import { List } from "../components/List"
 import { TodoItem } from "../components/TodoItem"
 import { PageLayout } from "../shared/layout/pageLayout/PageLayout"
+import { ButtonClearTask } from "../components/ButtonClearTask"
 
  
 
@@ -34,6 +35,10 @@ export function Home() {
           .then(() =>  setList([ ...isList.map(item => ({ ...item, complete: item.id === id ? true : item.complete }))]))
        
     }
+
+    const handleClearButtonTasks = () => {
+      TodoApi.deleteAll().then(() => setList([]))
+    }
     
     
     return (
@@ -56,7 +61,9 @@ export function Home() {
               />      
             ))}
           </List>
-    
-        </PageLayout>
+
+          {isList.length > 1 && <ButtonClearTask clearTask={handleClearButtonTasks}/>}
+
+         </PageLayout>
     )
 }
